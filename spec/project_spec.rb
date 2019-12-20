@@ -3,12 +3,16 @@ require('project')
 
 describe '#Word' do
 
-  describe("#save") do
-    it('saves word')do
-    word = Words.new('Grass', nil, 'definition') # nil added as second argument
-    word.save()
-    expect(Words.all).to(eq([word]))
-  end
+  before(:each)do
+  Word.clear()
+end
+
+describe("#save") do
+  it('saves word')do
+  word = Word.new('Grass', nil, 'definition')
+  word.save()
+  expect(Word.all).to(eq([word]))
+end
 
 
 end
