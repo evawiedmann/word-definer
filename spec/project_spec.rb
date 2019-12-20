@@ -45,9 +45,9 @@ end
 
 describe('#delete') do
     it("deletes an word by id") do
-      word = Word.new("Giant Steps", nil, "1989", "Fred")
+      word = Word.new('Red', nil, 'definition')
       word.save()
-      word2 = Word.new("Blue", nil, "1992", "Bob")
+      word2 = Word.new('Tall', nil, 'def')
       word2.save()
       word.delete()
       expect(Word.all).to(eq([word2]))

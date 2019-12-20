@@ -28,4 +28,12 @@ class Word
     @@total_rows = 0
   end
 
+  def update_spelling(spelling)
+    @spelling = spelling
+  end
+
+  def delete
+    @@words.delete(self.id)
+  end
+
 end
