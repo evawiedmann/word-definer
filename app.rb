@@ -1,0 +1,6 @@
+require('sinatra')
+require('sinatra/reloader')
+require('./lib/project')
+require('./lib/song')
+require('pry')
+also_reload('lib/**/*.rb')
