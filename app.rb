@@ -15,19 +15,19 @@ get('/') do
   erb(:words)
 end
 
-get('/words') do
-  if params[:searchID]
-    @words = [Word.find(params[:searchID].to_i())]
-    # binding.pry
-  elsif params[:searchName]
-    @words = Word.search(params[:searchName])
-  elsif params[:sorter]
-    @words = Word.sorter
-  else
-    @words = Word.all
-  end
-  erb(:words)
-end
+# get('/words') do
+#   if params[:searchID]
+#     @words = [Word.find(params[:searchID].to_i())]
+#     # binding.pry
+#   elsif params[:searchName]
+#     @words = Word.search(params[:searchName])
+#   elsif params[:sorter]
+#     @words = Word.sorter
+#   else
+#     @words = Word.all
+#   end
+#   erb(:words)
+# end
 
 get('/words/new') do
   erb(:new_word)
