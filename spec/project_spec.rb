@@ -9,7 +9,7 @@ describe '#Word' do
 
   describe("#save") do
     it('saves word')do
-    word = Word.new('Red', nil, 'definition')
+    word = Word.new('Red', nil)
     word.save()
     expect(Word.all).to(eq([word]))
     end
@@ -21,7 +21,7 @@ describe '#Word' do
   end
   describe('.clear') do
     it('clears all words') do
-      word = Word.new('Red', nil, 'definition')
+      word = Word.new('Red', nil)
       word.save()
       Word.clear()
       expect(Word.all).to(eq([]))
@@ -29,14 +29,14 @@ describe '#Word' do
   end
   describe('#==') do
     it('is the same word if it has the same attributes as another word') do
-      word = Word.new('Red', nil, 'definition')
-      word2 = Word.new('Red', nil, 'definition')
+      word = Word.new('Red', nil)
+      word2 = Word.new('Red', nil)
       expect(word).to(eq(word2))
     end
   end
   describe('#update_spelling') do
     it('updates the spelling of a word by id') do
-    word = Word.new('Redd', nil, 'definition')
+    word = Word.new('Redd', nil)
     word.save()
     word.update_spelling('Red')
     expect(word.spelling).to(eq('Red'))
@@ -45,9 +45,9 @@ end
 
 describe('#delete') do
     it("deletes an word by id") do
-      word = Word.new('Red', nil, 'definition')
+      word = Word.new('Red', nil)
       word.save()
-      word2 = Word.new('Tall', nil, 'def')
+      word2 = Word.new('Tall', nil)
       word2.save()
       word.delete()
       expect(Word.all).to(eq([word2]))
