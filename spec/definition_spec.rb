@@ -1,6 +1,6 @@
 require 'rspec'
 require 'definition'
-require 'project'
+require 'word'
 require 'pry'
 
 describe '#Definition' do
@@ -13,7 +13,7 @@ describe '#Definition' do
   end
 
   describe('#==') do
-    it("is the same definition if it has the same attributes as another  definition") do
+    it("is the same definition if it has the same attributes as aother  definition") do
       definition = Definition.new("Naima", @word.id, nil)
       definition2 = Definition.new("Naima", @word.id, nil)
       expect(definition).to(eq(definition2))
@@ -22,7 +22,7 @@ describe '#Definition' do
 
   describe('.all') do
     it("returns a list of all definitions") do
-      definition = Definition.new("Giant Steps", @word.id, nil)
+      definition = Definition.new("Giat Steps", @word.id, nil)
       definition.save()
       definition2 = Definition.new("Naima", @word.id, nil)
       definition2.save()
@@ -32,7 +32,7 @@ describe '#Definition' do
 
   describe('.clear') do
     it("clears all definitions") do
-      definition = Definition.new("Giant Steps", @word.id, nil)
+      definition = Definition.new("Giat Steps", @word.id, nil)
       definition.save()
       definition2 = Definition.new("Naima", @word.id, nil)
       definition2.save()
@@ -51,7 +51,7 @@ describe '#Definition' do
 
   describe('.find') do
     it("finds a definition by id") do
-      definition = Definition.new("Giant Steps", @word.id, nil)
+      definition = Definition.new("Giat Steps", @word.id, nil)
       definition.save()
       definition2 = Definition.new("Naima", @word.id, nil)
       definition2.save()
@@ -59,55 +59,35 @@ describe '#Definition' do
     end
   end
 
-  describe('#update') do
-    it("updates an definition by id") do
-      definition = Definition.new("Naima", @word.id, nil)
+  describe('#update_definition') do
+    it("updates a definition by id") do
+      definition = Definition.new("This means something", nil, nil)
       definition.save()
-      definition.update("Mr. P.C.", @word.id)
-      expect(definition.name).to(eq("Mr. P.C."))
+      definition.update_definition("This means something else")
+      expect(definition.written).to(eq("This means something else"))
     end
   end
 
   describe('#delete') do
-    it("deletes an definition by id") do
-      definition = Definition.new("Giant Steps", @word.id, nil)
+    it("deletes a definition by id") do
+      definition = Definition.new("Blah blah", @word.id, nil)
       definition.save()
-      definition2 = Definition.new("Naima", @word.id, nil)
+      definition2 = Definition.new("Nah nah", @word.id, nil)
       definition2.save()
       definition.delete()
       expect(Definition.all).to(eq([definition2]))
     end
   end
 
-  describe('.find_by_word') do
-    it("finds definitions for an word") do
-      word2 = Word.new("Blue", nil, "1989", "Bill")
-      word2.save
-      definition = Definition.new("Naima", @word.id, nil)
-      definition.save()
-      definition2 = Definition.new("California", word2.id , nil)
-      definition2.save()
-      expect(Definition.find_by_word(word2.id)).to(eq([definition2]))
-    end
-  end
-
   describe('#definitions') do
-      it("returns an word's definitions") do
-        word = Word.new("Giant Steps", nil, "1990", "Fred")
+      it("returns a word's definitions") do
+        word = Word.new("Gone", 1)
         word.save()
-        definition = Definition.new("Naima", word.id, nil)
+        definition = Definition.new("This and that", 1, nil)
         definition.save()
-        definition2 = Definition.new("Cousin Mary", word.id, nil)
+        definition2 = Definition.new("Up and down", 1, nil)
         definition2.save()
         expect(word.definitions).to(eq([definition, definition2]))
-      end
-    end
-
-    describe('#word') do
-      it("finds the word a definition belongs to") do
-        definition = Definition.new("Naima", @word.id, nil)
-        definition.save()
-        expect(definition.word()).to(eq(@word))
       end
     end
 end

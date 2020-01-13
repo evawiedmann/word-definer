@@ -1,5 +1,5 @@
 require('rspec')
-require('project')
+require('word')
 
 describe '#Word' do
 
@@ -28,23 +28,23 @@ describe '#Word' do
     end
   end
   describe('#==') do
-    it('is the same word if it has the same attributes as another word') do
+    it('is the same word if it has the same attributes as aother word') do
       word = Word.new('Red', nil)
       word2 = Word.new('Red', nil)
       expect(word).to(eq(word2))
     end
   end
-  describe('#update_spelling') do
+  describe('#update_name') do
     it('updates the spelling of a word by id') do
     word = Word.new('Redd', nil)
     word.save()
-    word.update_spelling('Red')
-    expect(word.spelling).to(eq('Red'))
+    word.update_name('Red')
+    expect(word.name).to(eq('Red'))
   end
 end
 
 describe('#delete') do
-    it("deletes an word by id") do
+    it("deletes a word by id") do
       word = Word.new('Red', nil)
       word.save()
       word2 = Word.new('Tall', nil)

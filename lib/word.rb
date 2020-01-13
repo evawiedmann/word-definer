@@ -1,11 +1,11 @@
 class Word
-  attr_reader :id, :spelling
+  attr_reader :id, :name
 
   @@words = {}
   @@total_rows = 0
 
-  def initialize(spelling, id)
-    @spelling = spelling
+  def initialize(name, id)
+    @name = name
     @id = id || @@total_rows += 1
   end
 
@@ -14,11 +14,11 @@ class Word
   end
 
   def save
-    @@words[self.id] = Word.new(self.spelling, self.id)
+    @@words[self.id] = Word.new(self.name, self.id)
   end
 
   def ==(word_to_compare)
-    self.spelling() == word_to_compare.spelling()
+    self.name() == word_to_compare.name()
   end
 
   def self.clear
@@ -26,16 +26,16 @@ class Word
     @@total_rows = 0
   end
 
-  def update_spelling(spelling)
-    @spelling = spelling
+  def update_name(name)
+    @name = name
   end
 
   def delete
     @@words.delete(self.id)
   end
 
-  def definitons
-  Definiton.find_by_spelling(self.id)
+  def definitions
+  Definition.find_by_name(self.id)
   end
 
 end

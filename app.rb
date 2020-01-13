@@ -1,6 +1,6 @@
 require('sinatra')
 require('sinatra/reloader')
-require('./lib/project')
+require('./lib/word')
 require('./lib/definition')
 require('pry')
 also_reload('lib/**/*.rb')
@@ -39,9 +39,9 @@ get('/words/:id/edit') do
 end
 
 post('/words') do
-  spelling = params[:spelling]
+  written = params[:written]
   definition = params[:definition]
-  word = Word.new(spelling, nil, definition)
+  word = Word.new(written, nil, definition)
   word.save()
   @words = Word.all()
   erb(:words)
@@ -58,8 +58,8 @@ end
 
 patch('/words/:id') do
   @word = Word.find(params[:id].to_i())
-  if params[:spelling] != ""
-    @word.update_spelling(params[:spelling])
+  if params[:written] != ""
+    @word.update_written(params[:written])
   end
   @words = Word.all
   erb(:words)
@@ -80,26 +80,26 @@ get('/words/:id/edit') do
   "This will take us to a page with a form for updating an word with an ID of #{params[:id]}."
 end
 
-get('/words/:id/words/:definiton_id') do
+get('/words/:id/words/:definition_id') do
   @definiton = Definition.find(params[:definiton_id].to_i())
   erb(:definiton)
 end
 
 post('/words/:id/words') do
   @word = Word.find(params[:id].to_i())
-  definiton = Definition.new(params[:definiton_spelling], @word.id, nil)
+  definiton = Definition.new(params[:definiton_written], @word.id, nil)
   definiton.save()
   erb(:word)
 end
 
-patch('/words/:id/words/:definiton_id') do
+patch('/words/:id/definitions/:definiton_id') do
   @word = Word.find(params[:id].to_i())
   definiton = Definition.find(params[:definiton_id].to_i())
-  definiton.update(params[:spelling], @word.id)
+  definiton.update(params[:written], @word.id)
   erb(:word)
 end
 
-delete('/words/:id/words/:definiton_id') do
+delete('/words/:id/definitions/:definition_id') do
   definiton = Definition.find(params[:definiton_id].to_i())
   definiton.delete
   @word = Word.find(params[:id].to_i())

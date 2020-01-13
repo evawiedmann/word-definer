@@ -1,57 +1,51 @@
 class Definition
-  attr_reader :id
-  attr_accessor :spelling, :word_id
+  attr_reader :written, :word_id, :id
 
-  @@definitons = {}
+  @@definitions = {}
   @@total_rows = 0
 
-  def initialize(spelling, word_id, id)
-    @spelling = spelling
+  def initialize(written, word_id, id)
+    @written = written
     @word_id = word_id
     @id = id || @@total_rows += 1
   end
 
-  def ==(definiton_to_compare)
-    self.spelling() == definiton_to_compare.spelling() && (self.word_id() == definiton_to_compare.word_id())
+  def ==(definition_to_compare)
+    self.written() == definition_to_compare.written() && (self.word_id() == definition_to_compare.word_id())
   end
 
   def self.all
-    @@definitons.values
+    @@definitions.values
   end
 
   def save
-    @@definitons[self.id] = Definition.new(self.spelling, self.word_id, self.id)
+    @@definitions[self.id] = Definition.new(self.written, self.word_id, self.id)
   end
 
   def self.find(id)
-    @@definitons[id]
+    @@definitions[id]
   end
 
-  def update(spelling, word_id)
-    self.spelling = spelling
-    self.word_id = word_id
-    @@definitons[self.id] = Definition.new(self.spelling, self.word_id, self.id)
+  def update_definition(written)
+    @written = written
+    @@definitions[self.id] = Definition.new(self.written, self.word_id, self.id)
   end
 
   def delete
-    @@definitons.delete(self.id)
+    @@definitions.delete(self.id)
   end
 
   def self.clear
-    @@definitons = {}
+    @@definitions = {}
   end
 
-  def self.find_by_album(alb_id)
-    definitons = []
-    @@definitons.values.each do |definiton|
-      if definiton.word_id == alb_id
-        definitons.push(definiton)
+  def self.find_by_name(test_id)
+    definitions = []
+    @@definitions.values.each do |definition|
+      if definition.word_id == test_id
+        definitions.push(definition)
       end
     end
-    definitons
-  end
-
-  def album
-    Album.find(self.word_id)
+    definitions
   end
 end
