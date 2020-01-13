@@ -13,7 +13,7 @@ describe '#Definition' do
   end
 
   describe('#==') do
-    it("is the same definition if it has the same attributes as another definition") do
+    it("is the same definition if it has the same attributes as another  definition") do
       definition = Definition.new("Naima", @word.id, nil)
       definition2 = Definition.new("Naima", @word.id, nil)
       expect(definition).to(eq(definition2))
