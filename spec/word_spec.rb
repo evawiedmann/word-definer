@@ -35,7 +35,7 @@ describe '#Word' do
     end
   end
   describe('#update_name') do
-    it('updates the spelling of a word by id') do
+    it('updates the name of a word by id') do
     word = Word.new('Redd', nil)
     word.save()
     word.update_name('Red')

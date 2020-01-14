@@ -28,6 +28,7 @@ class Word
 
   def update_name(name)
     @name = name
+    @@words[self.id] = Word.new(self.name, self.id)
   end
 
   def delete

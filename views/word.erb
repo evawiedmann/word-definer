@@ -1,11 +1,13 @@
-<h2><%= @word.spelling %></h2>
+<h1>Define Time</h1>
+
+<h2><%= @word.name %></h2>
 
 <h3>Definiton</h3>
 
   <% if @word.definition %>
     <ul>
-      <% @word.definitions.each do |definition| %>
-        <li><a href="/words/<%= @word.id %>/definitions/<%= definition.id %>"><%= definition.spelling %></a></li>
+      <% @word.definitions.each do |definit| %>
+        <li><a href="/words/<%= @word.id %>/definitions/<%= definition.id %>"><%= definit.definition %></a></li>
       <% end %>
     </ul>
   <% else %>
@@ -16,13 +18,11 @@
 
 <form action="/words/<%= @word.id %>/definitions" method="post">
   <div class="form-group">
-    <label for="definition">Definiton</label>
-    <input id="definition" name="definition" class="form-control" type="text">
+    <label for="definition_name">Definiton</label>
+    <input id="definition_name" name="definition" class="form-control" type="text">
   </div>
   <button type="submit" class="btn">Add definition</button>
 </form>
-
-
 
 <p><a href="/words/<%= @word.id %>/edit">Edit word</a></p>
 <p><a href="/words">Return to word list</a></p>

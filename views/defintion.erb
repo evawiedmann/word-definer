@@ -1,10 +1,12 @@
-<h2>Defintion: <%= @definition.spelling %></h2>
-<h3>Word: <%= @definition.word.spelling %></h3>
+<h1>Define Time</h1>
+
+<h3>Word: <%= @definition.word.name %></h3>
+<h2>Defintion: <%= @definition.name %></h2>
 
 <form action="/word/<%= @definition.word.id %>/definitions/<%= @definition.id %>" method="post">
-  <input name="_method" value="patch">
+  <input type="hidden" name="_method" value="patch">
 
-  <label for="definition_name">Rename definition</label>
+  <label for="definition_name">Edit definition</label>
   <input id="definition_name" name="definition_name" type="text">
 
   <button type="submit">Update definition</button>

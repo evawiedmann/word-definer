@@ -5,29 +5,16 @@ require('./lib/definition')
 require('pry')
 also_reload('lib/**/*.rb')
 
-get('/test/') do
-   @something = "this is a variable"
-  erb(:whatever)
-end
 
 get('/') do
   @words = Word.all
   erb(:words)
 end
 
-# get('/words') do
-#   if params[:searchID]
-#     @words = [Word.find(params[:searchID].to_i())]
-#     # binding.pry
-#   elsif params[:searchName]
-#     @words = Word.search(params[:searchName])
-#   elsif params[:sorter]
-#     @words = Word.sorter
-#   else
-#     @words = Word.all
-#   end
-#   erb(:words)
-# end
+get('/words') do
+  @words = Word.all
+  erb(:words)
+end
 
 get('/words/new') do
   erb(:new_word)
@@ -53,14 +40,13 @@ get('/words/:id') do
 end
 
 get('/words/:id/edit') do
-  "This will take us to a page with a form for updating an word with an ID of #{params[:id]}."
+  @word = Word.find(params[:id].to_i())
+  erb(:edit_word)
 end
 
 patch('/words/:id') do
   @word = Word.find(params[:id].to_i())
-  if params[:written] != ""
-    @word.update_written(params[:written])
-  end
+  @word.update_written(params[:written])
   @words = Word.all
   erb(:words)
 end
@@ -70,14 +56,6 @@ delete('/words/:id') do
   @word.delete()
   @words = Word.all
   erb(:words)
-end
-
-# get('/custom_route') do
-#   "We can even create custom routes, but we should only do this when needed."
-# end
-
-get('/words/:id/edit') do
-  "This will take us to a page with a form for updating an word with an ID of #{params[:id]}."
 end
 
 get('/words/:id/words/:definition_id') do

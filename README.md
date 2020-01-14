@@ -2,10 +2,10 @@
 
 ##### By Eva Wiedmann
 
-###### _2020-1-12_
+###### _2020-1-14_
 
 ## Description:
-<!-- This application was made as part of a coding project for Eva Wiedmann, a student at _[Epicodus](http://www.epicodus.com)_, a vocational school for technology careers based in Portland, OR. The project is designed to create an application to catalog a library's books and let patrons check them out. -->
+This application was made as part of a coding project for Eva Wiedmann, a student at _[Epicodus](http://www.epicodus.com)_, a vocational school for technology careers based in Portland, OR. The project is designed to create an application to allow users to add vocabulary words and corresponding definitions.
 
 
 <!-- This project is fully deployed on **Heroku** [here](https://make-a-word-foundation.herokuapp.com/) -->
@@ -31,11 +31,10 @@
 ||||
 
 
-
 ## References
 
 ## Support and contact details
-Contact [example@sample.com](mailto:example@sample.com)
+Contact [evawiedmann@gmail.com](mailto:evawiedmann@gmail.com)
 
 ## License
-_This This repository is copyright (C) 2019 by Eva Wiedmann.
+_This This repository is copyright (C) 2020 by Eva Wiedmann.
