@@ -16,8 +16,8 @@ describe('creates a word path', {:type => :feature}) do
   it ('allows a user to edit the definition(s) of a word') do
     word = Word.new('Zip', nil)
     word.save
-    visit '/'
-    click_link('Zip')
+    id = word.id
+    visit "/words/#{id}"
     click_link('Edit Word')
     fill_in('definition_name', :with => 'A quick noise.')
     click_on('Add a definition')

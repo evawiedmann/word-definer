@@ -1,28 +1,28 @@
 <h1>Define Time</h1>
 
-<h2><%= @word.name %></h2>
+<h2><%= @words.name.capitalize %></h2>
 
-<h3>Definiton</h3>
+<h3>Definition:</h3>
 
-  <% if @word.definition %>
-    <ul>
-      <% @word.definitions.each do |definit| %>
-        <li><a href="/words/<%= @word.id %>/definitions/<%= definition.id %>"><%= definit.definition %></a></li>
-      <% end %>
-    </ul>
-  <% else %>
-    <p>There are no definitions listed for this word yet.</p>
+<% if @words.definitions %>
+<ul>
+  <% @words.definitions.each do |defin| %>
+  <li><a href="/words/<%= @word.id %>/definition/<%= defin.id %>"><%= defin.definition %></a></li>
   <% end %>
+</ul>
+<% else %>
+<p>There are no definitions listed for this word.</p>
+<% end %>
 
 <h4>Add a definition:</h4>
 
 <form action="/words/<%= @word.id %>/definitions" method="post">
   <div class="form-group">
-    <label for="definition_name">Definiton</label>
+    <label for="definition_name">Definition</label>
     <input id="definition_name" name="definition" class="form-control" type="text">
   </div>
   <button type="submit" class="btn">Add definition</button>
 </form>
 
-<p><a href="/words/<%= @word.id %>/edit">Edit word</a></p>
+<p><a href="/words/<%= @word.id %>/edit">Edit Word</a></p>
 <p><a href="/words">Return to word list</a></p>

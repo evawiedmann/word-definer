@@ -1,5 +1,5 @@
 class Word
-  attr_reader :id, :name
+  attr_reader :name, :id
 
   @@words = {}
   @@total_rows = 0
@@ -11,6 +11,10 @@ class Word
 
   def self.all
     @@words.values
+  end
+
+  def self.find(id)
+    @@words[id]
   end
 
   def save
@@ -36,7 +40,7 @@ class Word
   end
 
   def definitions
-  Definition.find_by_name(self.id)
+    Definition.find_by_name(self.id)
   end
 
 end
