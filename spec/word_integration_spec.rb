@@ -12,4 +12,18 @@ describe('creates a word path', {:type => :feature}) do
     click_on('Go!')
     expect(page).to have_content('Yellow')
   end
+
+  it ('allows a user to edit the definition(s) of a word') do
+    word = Word.new('Zip', nil)
+    word.save
+    visit '/'
+    click_link('Zip')
+    click_link('Edit Word')
+    fill_in('definition_name', :with => 'A quick noise.')
+    click_on('Add a definition')
+    click_link('A quick noise.')
+    fill_in('definition_name', :with => 'A speedy event.')
+    click_button('Update Definition')
+    expect(page).to have_content('A speedy event.')
+  end
 end

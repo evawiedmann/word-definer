@@ -26,9 +26,9 @@ get('/words/:id/edit') do
 end
 
 post('/words') do
-  written = params[:written]
-  definition = params[:definition]
-  word = Word.new(written, nil, definition)
+  written = params[:word_name]
+  definition = params[:definition_name]
+  word = Word.new(written, definition)
   word.save()
   @words = Word.all()
   erb(:words)
@@ -40,7 +40,7 @@ get('/words/:id') do
 end
 
 get('/words/:id/edit') do
-  @word = Word.find(params[:id].to_i())
+  @word = Word.find(params[:name].to_i())
   erb(:edit_word)
 end
 

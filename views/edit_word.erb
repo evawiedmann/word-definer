@@ -5,10 +5,10 @@
 <form action="/words/<%= @word.id() %>" method="post">
   <input name="_method" type="text" value="patch">
 
-  <label for="name">Update name</label>
+  <label for="name">Update Word</label>
   <input id="name" name="name" type="text">
 
-  <label for="definition">Update definition</label>
+  <label for="definition">Update Definition</label>
   <input id="definition" name="definition" type="text">
 
   <button type="submit">Update</button>
@@ -19,5 +19,5 @@
 <form action="/words/<%= @word.id() %>" method="post">
   <input name="_method" type="text" value="delete">
 
-  <button type="submit">Delete word</button>
+  <button type="submit">Delete Word</button>
 </form>
