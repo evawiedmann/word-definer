@@ -1,21 +1,16 @@
 <h1>Define Time</h1>
 
-<h3>Word: <%= @definition.word.name %></h3>
-<h2>Defintion: <%= @definition.name %></h2>
+<h2>Defintion: <%= @definition.written %></h2>
 
-<form action="/word/<%= @definition.word.id %>/definitions/<%= @definition.id %>" method="post">
+<form action="/words/<%= @definition.word_id %>/definitions/<%= @definition.id %>" method="post">
   <input type="hidden" name="_method" value="patch">
 
-  <label for="definition_name">Edit definition</label>
-  <input id="definition_name" name="definition_name" type="text">
+  <label for="definition">Edit definition</label>
+  <input id="definition" name="definition" type="text">
 
   <button type="submit">Update definition</button>
 </form>
 
-<form action="/word/<%= @definition.word.id %>/definitions/<%= @definition.id %>" method="post">
-  <input name="_method" type="hidden" value="delete">
 
-  <button type="submit">Delete definition</button>
-</form>
 
-<a href="/word/<%= @definition.word.id %>">Back to <%= @definition.word.name %></a>
+<a href="/words/<%= @definition.word_id %>">Back to word</a>

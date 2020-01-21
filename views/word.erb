@@ -1,13 +1,13 @@
 <h1>Define Time</h1>
 
-<h2><%= @words.name.capitalize %></h2>
+<h2><%= @word.name.capitalize %></h2>
 
 <h3>Definition:</h3>
 
-  <% if @words.definitions %>
+  <% if @word.definitions %>
     <ul>
-      <% @words.definitions.each do |definite| %>
-        <li><a href="/words/<%= @words.id %>/definitions/<%= definite.id %>"><%= definite.written %></a></li>
+      <% @word.definitions.each do |definite| %>
+        <li><a href="/words/<%= @word.id %>/definitions/<%= definite.id %>"><%= definite.written %></a></li>
       <% end %>
     </ul>
   <% else %>
@@ -16,13 +16,13 @@
 
 <h4>Add a definition:</h4>
 
-<form action="/words/<%= @words.id %>/definitions" method="post">
+<form action="/words/<%= @word.id %>/definitions" method="post">
   <div class="form-group">
-    <label for="definition_name">Definition</label>
-    <input id="definition_name" name="definition" class="form-control" type="text">
+    <label for="definition">Definition</label>
+    <input id="definition" name="definition" class="form-control" type="text">
   </div>
   <button type="submit" class="btn">Add definition</button>
 </form>
 
-<p><a href="/words/<%= @words.id %>/edit">Edit Word</a></p>
+<p><a href="/words/<%= @word.id %>/edit">Edit Word</a></p>
 <p><a href="/words">Return to word list</a></p>
