@@ -27,4 +27,4 @@ This application was made as part of a coding project for Eva Wiedmann, a studen
 Contact [evawiedmann@gmail.com](mailto:evawiedmann@gmail.com)
 
 ## License
-_This This repository is copyright (C) 2020 by Eva Wiedmann.
+This This repository is copyright (C) 2020 by Eva Wiedmann.
