@@ -3,7 +3,7 @@
 <h1>Update <%= @word.name() %></h1>
 
 <form action="/words/<%= @word.id() %>" method="post">
-  <input name="_method" type="text" value="patch">
+  <input name="_method" type="hidden" value="patch">
 
   <label for="name">Edit Word</label>
   <input id="name" name="name" type="text">
@@ -17,7 +17,7 @@
 <p><a href="/words">Return to vocabulary list</a></p>
 
 <form action="/words/<%= @word.id() %>" method="post">
-  <input name="_method" type="text" value="delete">
+  <input name="_method" type="hidden" value="delete">
 
   <button type="submit">Delete Word</button>
 </form>

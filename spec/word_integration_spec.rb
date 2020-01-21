@@ -19,11 +19,11 @@ describe('creates a word path', {:type => :feature}) do
     id = word.id
     visit "/words/#{id}"
     click_link('Edit Word')
-    fill_in('definition_name', :with => 'A quick noise.')
-    click_on('Add a definition')
+    fill_in('name', :with => 'A quick noise.')
+    click_on('Update')
     click_link('A quick noise.')
     fill_in('definition_name', :with => 'A speedy event.')
-    click_button('Update Definition')
+    click_button('Add a Definition')
     expect(page).to have_content('A speedy event.')
   end
 end

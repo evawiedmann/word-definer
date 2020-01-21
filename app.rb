@@ -67,7 +67,7 @@ end
 
 post('/words/:id/definition') do
   @word = Word.find(params[:id].to_i())
-  definition = Definition.new(params[:definition_written], @word.id, nil)
+  definition = Definition.new(params[:definition], @word.id, nil)
   definition.save()
   erb(:word)
 end
