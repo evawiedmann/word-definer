@@ -23,7 +23,7 @@ describe('creates a word path', {:type => :feature}) do
     click_on('Update')
     click_link('A quick noise.')
     fill_in('definition_name', :with => 'A speedy event.')
-    click_button('Add a Definition')
+    click_button('Add definition')
     expect(page).to have_content('A speedy event.')
   end
 end
