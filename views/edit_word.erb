@@ -1,6 +1,6 @@
-<h1>Define Time</h1>
+<h1 class=jumbotron>Define Time</h1>
 
-<h1>Update <%= @word.name() %></h1>
+<h2>Update <%= @word.name() %></h2>
 
 <form action="/words/<%= @word.id() %>" method="post">
   <input name="_method" type="hidden" value="patch">

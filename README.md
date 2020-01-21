@@ -2,7 +2,7 @@
 
 ##### By Eva Wiedmann
 
-###### _2020-1-15_
+###### _2020-1-20_
 
 ## Description:
 This application was made as part of a coding project for Eva Wiedmann, a student at _[Epicodus](http://www.epicodus.com)_, a vocational school for technology careers based in Portland, OR. The project is designed to create an application to allow users to add vocabulary words and corresponding definitions.
@@ -23,15 +23,6 @@ This application was made as part of a coding project for Eva Wiedmann, a studen
 
 ## Known Bugs
 * None
-
-## Behavior Driven Development Specifications
-
-|Spec|Input|Output|
-|-|-|-|
-||||
-
-
-## References
 
 ## Support and contact details
 Contact [evawiedmann@gmail.com](mailto:evawiedmann@gmail.com)

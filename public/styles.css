@@ -3,12 +3,6 @@ body {
 }
 
 h1 {
-  color: #006bb7;
   text-align: center;
-  font-size: 4vmax;
-  margin-bottom: 0px;
-}
-
-.alignCenter {
-text-align: center;
+  text-decoration: underline;
 }
